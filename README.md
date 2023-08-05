@@ -45,11 +45,14 @@ These Nerd Fonts will enable the Nvim Tree icons.
 Some other notes about shortcuts and gestures
 
 A great cheat sheet:
+
 [image](https://i.imgur.com/YLInLlY.png)
+
 [site](https://vimcheatsheet.com/)
 
 Another one:
 [image](https://i.redd.it/a32xicnes4k91.png)
+
 [reddit post](https://www.reddit.com/r/vim/comments/wylqn7/made_a_vim_cheat_sheet_wallpaper_for_quick/)
 
 Besides these basic gestures,
@@ -105,6 +108,7 @@ Some other key gestures I learned afterwards:
 ## macros
 [An explanation of macros here](https://www.redhat.com/sysadmin/use-vim-macros)
 For a quick example, in line 83 of this document I wanted to add tildes \` around all the letters after the "Ctrl ".
+
 (assuming those tildes were not there, so it looked like:
 ```
 * Ctrl e ...
@@ -112,6 +116,7 @@ For a quick example, in line 83 of this document I wanted to add tildes \` aroun
 * Ctrl d ...
 ```
 ...)
+
 I press `q` to start recording a macro,
 then `a` which can be any letter to choose a register where this macro will be recorded,
 (with the current configuration, nvim will show that is is "recording macro to register a" or similar)
@@ -124,38 +129,4 @@ the recorded actions are repeated once.
 Since I have 5 more lines where I want to repeat the same actions, do `5@a`.
 So the whole action to add tildes around the letters in these six lines would be,
 starting from the first position in line 83:
-commit fe23356d28f7072a835e221ebfea487b48abf3e7
-Author: Guillermo Amarante <gac317@gmail.com>
-Date:   Sat Aug 5 13:41:05 2023 +0800
-
-    Add macro example to README and change format to markdown
-
-commit 6a09a7bb657c22592e9aefeea0fb34d5548417ca
-Author: Guillermo Amarante <gac317@gmail.com>
-Date:   Sat Aug 5 12:55:23 2023 +0800
-
-    Update readme with useful gestures and fixes
-
-commit 77196de29dcef49c192e0f9b5076e834e4dc918a
-Author: Guillermo Amarante <gac317@gmail.com>
-Date:   Mon Jul 31 08:12:33 2023 +0800
-
-    Fix autocompletion by requiring it for all languages
-
-commit b598057a11b7ea8db21d240866038df27caa5b75
-Author: Guillermo Amarante <gac317@gmail.com>
-Date:   Sun Jul 30 08:00:12 2023 +0800
-
-    Add LSP languages html and css
-
-commit 875cb9ac9116af0e40b4863b6f21930ba48146c9
-Author: Guillermo Amarante <gac317@gmail.com>
-Date:   Thu Jul 20 12:12:02 2023 +0800
-
-    Add README file
-
-commit 2f1bf93ed4ecd4617818681819a38680e4ffde6d
-Author: Guillermo Amarante <gac317@gmail.com>
-Date:   Thu Jul 20 10:29:00 2023 +0800
-
-    Complete settings from tutorial up to autocomplete
+`qawwi<tilde><Esc>li<tilde><Esc>j0q`, then `5@a`
