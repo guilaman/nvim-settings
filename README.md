@@ -55,14 +55,20 @@ Another one:
 Besides these basic gestures,
 * `i` insert behind cursor, `a` append after cursor
 * `x` delete character, `d` delete with input of number, gesture, direction
+* See the difference between a word and a WORD (skips non-alphanumeric characters to include entire word until whitespace)
+* `w` word forward, `W` for WORD forward
+* `b` or `B` backward
+* `u` undo, Ctrl`r` redo
+* `dw` delete word forward from cursor; `db` delete backward
+* `dd` delete whole line
+* the above action accepts a number first, like `3db` delete three words backwards from the cursor
+* `v` visual mode: select text, then input action
+* `y` yank: copy to register (like a clipboard, see below about naming register and using multiple ones)
+* `p` put from the register, which includes content deleted with `d` or yanked with `y`
 * `gg` top of document, `G` end, number`G` jump to line
 * `0` jump to beginning of line
 * `^` first non blank character in the line
 * `$` end of line
-* See the difference between a word and a WORD
-* `w` word forward, `W` for WORD forward
-* `b` or `B` backward
-* `u` undo, Ctrl`r` redo
 
 Some other key gestures I learned afterwards:
 
@@ -80,12 +86,12 @@ Some other key gestures I learned afterwards:
 * `M` bring cursor to middle of screen
 * `H` bring cursor to top of screen
 * `L` bring cursor to bottom of screen
-* Ctrl `e` move screen down one line
-* Ctrl `y` move screen up one line
-* Ctrl `d` move screen down half a page
-* Ctrl `u` move screen up half a page
-* Ctrl `f` move screen down a full page
-* Ctrl `b` move screen up a full page
+* Ctrl`e` move screen down one line
+* Ctrl`y` move screen up one line
+* Ctrl`d` move screen down half a page
+* Ctrl`u` move screen up half a page
+* Ctrl`f` move screen down a full page
+* Ctrl`b` move screen up a full page
 
 
 ## registers:
@@ -93,6 +99,7 @@ Some other key gestures I learned afterwards:
 * `:reg` see all registers
 * can name registers doing `"a` to `"z`
 * using upper-case to refer to a register will append to it rather than overwrite
+* then `"ap` to put (paste) the contents recorded to register a.
 
 
 ## macros
@@ -117,4 +124,38 @@ the recorded actions are repeated once.
 Since I have 5 more lines where I want to repeat the same actions, do `5@a`.
 So the whole action to add tildes around the letters in these six lines would be,
 starting from the first position in line 83:
-`qawwi<tilde><Esc>li<tilde><Esc>j0q`, then `5@a`
+commit fe23356d28f7072a835e221ebfea487b48abf3e7
+Author: Guillermo Amarante <gac317@gmail.com>
+Date:   Sat Aug 5 13:41:05 2023 +0800
+
+    Add macro example to README and change format to markdown
+
+commit 6a09a7bb657c22592e9aefeea0fb34d5548417ca
+Author: Guillermo Amarante <gac317@gmail.com>
+Date:   Sat Aug 5 12:55:23 2023 +0800
+
+    Update readme with useful gestures and fixes
+
+commit 77196de29dcef49c192e0f9b5076e834e4dc918a
+Author: Guillermo Amarante <gac317@gmail.com>
+Date:   Mon Jul 31 08:12:33 2023 +0800
+
+    Fix autocompletion by requiring it for all languages
+
+commit b598057a11b7ea8db21d240866038df27caa5b75
+Author: Guillermo Amarante <gac317@gmail.com>
+Date:   Sun Jul 30 08:00:12 2023 +0800
+
+    Add LSP languages html and css
+
+commit 875cb9ac9116af0e40b4863b6f21930ba48146c9
+Author: Guillermo Amarante <gac317@gmail.com>
+Date:   Thu Jul 20 12:12:02 2023 +0800
+
+    Add README file
+
+commit 2f1bf93ed4ecd4617818681819a38680e4ffde6d
+Author: Guillermo Amarante <gac317@gmail.com>
+Date:   Thu Jul 20 10:29:00 2023 +0800
+
+    Complete settings from tutorial up to autocomplete
