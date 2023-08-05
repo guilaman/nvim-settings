@@ -107,7 +107,7 @@ Some other key gestures I learned afterwards:
 
 ## macros
 [An explanation of macros here](https://www.redhat.com/sysadmin/use-vim-macros)
-For a quick example, in line 83 of this document I wanted to add tildes \` around all the letters after the "Ctrl ".
+For a quick example, in line 92 of this file I wanted to add tildes \` around all the letters after the "Ctrl ", to display them as input in this file.
 
 (assuming those tildes were not there, so it looked like:
 ```
@@ -128,5 +128,21 @@ To use the macro, press `@` and the macro's letter, so `@a`:
 the recorded actions are repeated once.
 Since I have 5 more lines where I want to repeat the same actions, do `5@a`.
 So the whole action to add tildes around the letters in these six lines would be,
-starting from the first position in line 83:
+starting from the first position in line 92:
 `qawwi<tilde><Esc>li<tilde><Esc>j0q`, then `5@a`
+
+***
+
+## tree actions
+
+In this configuration, Ctrl`n` will open the Tree.
+Ctrl`w` switches between panels, so between the tree and the open file, also cycing between open splits if any.
+In the tree, `g?` will display all the mappings.
+`a` to create a new file; naming as `directory/` to make one, or `directory/file` to create the whole path.
+`r` to rename
+`c` to copy, `x` to cut
+`d` to delete
+`p` paste
+`y` copy name
+`f` filter
+
