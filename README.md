@@ -131,6 +131,28 @@ So the whole action to add tildes around the letters in these six lines would be
 starting from the first position in line 92:
 `qawwi<tilde><Esc>li<tilde><Esc>j0q`, then `5@a`
 
+## search and replace
+(See [this Linuxize article](https://linuxize.com/post/vim-find-replace/) for more examples and great explanations)
+`:s` is the substitute command
+"The general form of the substitute command is:"
+`:[range]s/{pattern}/{string}/[flags] [count]
+
+`:s/foo/bar` replace first found instance of foo with bar.
+Add `/``g` flag at the end to replace in the whole line.
+`:%s/foo/bar` replace all instances of foo in the whole file with bar.
+Add `c` flag at the end to ask for confirmation for each instance.
+Add `i` flag to make the pattern case-insensitive.
+
+If the search pattern contains slash characters /, they can be escaped with backslash `\/`, or preferably [alterative delimiters](https://vim.fandom.com/wiki/Alternate_delimiters_for_the_replace_command) can be used, such as # or % instead of / to separate the parts of the command.
+
+If searching for a whole word (not a string that may be found as part of other words), type `\<` to mark the beginning of a word and `\>` to mark the end of the word.
+
+The search pattern can also be a [regular expression](https://regexone.com/).
+
+[Range of substitution](https://linuxize.com/post/vim-find-replace/#search-range): When no range is specified the command wors on the current line; the range can be one line or a range specified separating with `,` or `;` characters, using the absolute line number or special symbols.
+Example: comment lines from 145 to 150
+`:145,150s/^/#`
+
 ***
 
 ## tree actions
@@ -145,4 +167,3 @@ In the tree, `g?` will display all the mappings.
 `p` paste
 `y` copy name
 `f` filter
-
