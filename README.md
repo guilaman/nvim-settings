@@ -117,56 +117,55 @@ For a quick example, in line 92 of this file I wanted to add tildes \` around al
 ```
 ...)
 
-I press `q` to start recording a macro,
-then `a` which can be any letter to choose a register where this macro will be recorded,
-(with the current configuration, nvim will show that is is "recording macro to register a" or similar)
-then perform the necessary actions
-(jump word, insert, character, Esc to exit insert mode, navigate, insert, character, go down a line, go to beginning of line),
-when completed and outside insert mode, press `q` again to finish recording this macro.
-The macro is recorded into the register I specified (`a` in this example).
-To use the macro, press `@` and the macro's letter, so `@a`:
+* I press `q` to start recording a macro,
+* then `a` which can be any letter to choose a register where this macro will be recorded,
+* (with the current configuration, nvim will show that is is "recording macro to register a" or similar)
+* then perform the necessary actions
+* (jump word, insert, character, Esc to exit insert mode, navigate, insert, character, go down a line, go to beginning of line),
+* when completed and outside insert mode, press `q` again to finish recording this macro.
+* The macro is recorded into the register I specified (`a` in this example).
+* To use the macro, press `@` and the macro's letter, so `@a`:
 the recorded actions are repeated once.
-Since I have 5 more lines where I want to repeat the same actions, do `5@a`.
-So the whole action to add tildes around the letters in these six lines would be,
-starting from the first position in line 92:
+* Since I have 5 more lines where I want to repeat the same actions, do `5@a`.
+* So the whole action to add tildes around the letters in these six lines would be,
+* starting from the first position in line 92:
 `qawwi<tilde><Esc>li<tilde><Esc>j0q`, then `5@a`
 
 ## search and replace
-(See [this Linuxize article](https://linuxize.com/post/vim-find-replace/) for more examples and great explanations)
-`:s` is the substitute command
-"The general form of the substitute command is:"
-`:[range]s/{pattern}/{string}/[flags] [count]
-
-`:s/foo/bar` replace first found instance of foo with bar.
-Add `/``g` flag at the end to replace in the whole line.
-`:%s/foo/bar/g` replace all instances of foo in the whole file with bar.
-\* if I don't add the `g` flag to the above command, it will only attempt to replace the first instance found in each line (for the whole document), ignoring the second and further instances of the pattern in the same line.
-Add `c` flag at the end to ask for confirmation for each instance.
-Add `i` flag to make the pattern case-insensitive.
-Example: replace all instances of "project" with "article", including python class names which will be titlecase, and function names which will be lowercase.
-`:%s/project/article/gci`
-
-If the search pattern contains slash characters /, they can be escaped with backslash `\/`, or preferably [alterative delimiters](https://vim.fandom.com/wiki/Alternate_delimiters_for_the_replace_command) can be used, such as # or % instead of / to separate the parts of the command.
-
-If searching for a whole word (not a string that may be found as part of other words), type `\<` to mark the beginning of a word and `\>` to mark the end of the word.
-
-The search pattern can also be a [regular expression](https://regexone.com/).
-
-[Range of substitution](https://linuxize.com/post/vim-find-replace/#search-range): When no range is specified the command wors on the current line; the range can be one line or a range specified separating with `,` or `;` characters, using the absolute line number or special symbols.
-Example: comment lines from 145 to 150
-`:145,150s/^/#`
-
+* (See [this Linuxize article](https://linuxize.com/post/vim-find-replace/) for more examples and great explanations)
+* `:s` is the substitute command
+* "The general form of the substitute command is:" `:[range]s/{pattern}/{string}/[flags] [count]
+<br>
+* `:s/foo/bar` replace first found instance of foo with bar.
+* Add `/``g` flag at the end to replace in the whole line.
+* `:%s/foo/bar/g` replace all instances of foo in the whole file with bar.
+* \* if I don't add the `g` flag to the above command, it will only attempt to replace the first instance found in each line (for the whole document), ignoring the second and further instances of the pattern in the same line.
+* Add `c` flag at the end to ask for confirmation for each instance.
+* Add `i` flag to make the pattern case-insensitive.
+* Example: replace all instances of "project" with "article", including python class names which will be titlecase, and function names which will be lowercase.
+* `:%s/project/article/gci`
+<br>
+* If the search pattern contains slash characters /, they can be escaped with backslash `\/`, or preferably [alterative delimiters](https://vim.fandom.com/wiki/Alternate_delimiters_for_the_replace_command) can be used, such as # or % instead of / to separate the parts of the command.
+<br>
+* If searching for a whole word (not a string that may be found as part of other words), type `\<` to mark the beginning of a word and `\>` to mark the end of the word.
+<br>
+* The search pattern <s>can also be</s> is actually a [regular expression](https://regexone.com/).
+<br>
+* [Range of substitution](https://linuxize.com/post/vim-find-replace/#search-range): When no range is specified the command wors on the current line; the range can be one line or a range specified separating with `,` or `;` characters, using the absolute line number or special symbols.
+* Example: comment lines from 145 to 150
+* `:145,150s/^/#`
+<br>
 ***
-
-## tree actions
-
-In this configuration, Ctrl`n` will open the Tree.
-Ctrl`w` switches between panels, so between the tree and the open file, also cycing between open splits if any.
-In the tree, `g?` will display all the mappings.
-`a` to create a new file; naming as `directory/` to make one, or `directory/file` to create the whole path.
-`r` to rename
-`c` to copy, `x` to cut
-`d` to delete
-`p` paste
-`y` copy name
-`f` filter
+<br>
+* ## tree actions
+<br>
+* In this configuration, Ctrl`n` will open the Tree.
+* Ctrl`w` switches between panels, so between the tree and the open file, also cycing between open splits if any.
+* In the tree, `g?` will display all the mappings.
+* `a` to create a new file; naming as `directory/` to make one, or `directory/file` to create the whole path.
+* `r` to rename
+* `c` to copy, `x` to cut
+* `d` to delete
+* `p` paste
+* `y` copy name
+* `f` filter
