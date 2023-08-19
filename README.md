@@ -139,9 +139,12 @@ starting from the first position in line 92:
 
 `:s/foo/bar` replace first found instance of foo with bar.
 Add `/``g` flag at the end to replace in the whole line.
-`:%s/foo/bar` replace all instances of foo in the whole file with bar.
+`:%s/foo/bar/g` replace all instances of foo in the whole file with bar.
+\* if I don't add the `g` flag to the above command, it will only attempt to replace the first instance found in each line (for the whole document), ignoring the second and further instances of the pattern in the same line.
 Add `c` flag at the end to ask for confirmation for each instance.
 Add `i` flag to make the pattern case-insensitive.
+Example: replace all instances of "project" with "article", including python class names which will be titlecase, and function names which will be lowercase.
+`:%s/project/article/gci`
 
 If the search pattern contains slash characters /, they can be escaped with backslash `\/`, or preferably [alterative delimiters](https://vim.fandom.com/wiki/Alternate_delimiters_for_the_replace_command) can be used, such as # or % instead of / to separate the parts of the command.
 
