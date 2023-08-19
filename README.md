@@ -135,7 +135,7 @@ the recorded actions are repeated once.
 * (See [this Linuxize article](https://linuxize.com/post/vim-find-replace/) for more examples and great explanations)
 * `:s` is the substitute command
 * "The general form of the substitute command is:" `:[range]s/{pattern}/{string}/[flags] [count]
-<br>
+
 * `:s/foo/bar` replace first found instance of foo with bar.
 * Add `/``g` flag at the end to replace in the whole line.
 * `:%s/foo/bar/g` replace all instances of foo in the whole file with bar.
@@ -144,21 +144,21 @@ the recorded actions are repeated once.
 * Add `i` flag to make the pattern case-insensitive.
 * Example: replace all instances of "project" with "article", including python class names which will be titlecase, and function names which will be lowercase.
 * `:%s/project/article/gci`
-<br>
+
 * If the search pattern contains slash characters /, they can be escaped with backslash `\/`, or preferably [alterative delimiters](https://vim.fandom.com/wiki/Alternate_delimiters_for_the_replace_command) can be used, such as # or % instead of / to separate the parts of the command.
-<br>
+
 * If searching for a whole word (not a string that may be found as part of other words), type `\<` to mark the beginning of a word and `\>` to mark the end of the word.
-<br>
+
 * The search pattern <s>can also be</s> is actually a [regular expression](https://regexone.com/).
-<br>
+
 * [Range of substitution](https://linuxize.com/post/vim-find-replace/#search-range): When no range is specified the command wors on the current line; the range can be one line or a range specified separating with `,` or `;` characters, using the absolute line number or special symbols.
 * Example: comment lines from 145 to 150
 * `:145,150s/^/#`
-<br>
+
 ***
-<br>
+
 * ## tree actions
-<br>
+
 * In this configuration, Ctrl`n` will open the Tree.
 * Ctrl`w` switches between panels, so between the tree and the open file, also cycing between open splits if any.
 * In the tree, `g?` will display all the mappings.
