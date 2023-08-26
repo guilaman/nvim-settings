@@ -243,3 +243,41 @@ the recorded actions are repeated once.
 * `H` toggles dotfiles
 * `I` toggles gitignore 
 * `E` expands all directories within the one currently selected
+
+
+***
+***
+Now the part I still don't understand and have to research about all the plugins configuration:
+
+## installing Neovim plugins and LSP
+
+in `~/.config/nvim/lua/core/plugin-config`
+open `lsp-config.lua`
+I can use `:Mason` command to see available lsp plugins.
+Find the ones I want, then add them to `lsp-config.lua` in these two places:
+```lua
+require("mason").setup()
+require("mason-lspconfig").setup({
+  ensure_installed = { "lua_ls", "pylsp"}
+})
+
+-- ...
+
+require("lspconfig").lua_ls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+
+require("lspconfig").pylsp.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+```
+(and so on for any installed lsp plugins)
+
+Then save `:w` and source `:source %` (need to learn what this actually does)
+
+Run `:PackerSync` to install newly added packages.
+
+Run `:TSUpdate` if encountering "treesitter/highlighter" errors.
+***

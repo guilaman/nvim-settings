@@ -1,6 +1,6 @@
 require("mason").setup()
 require("mason-lspconfig").setup({
-  ensure_installed = { "lua_ls", "pylsp", "html", "cssls" }
+  ensure_installed = { "lua_ls", "html", "cssls", "pyright", "clangd"}
 })
 
 local on_attach = function(_, _)
@@ -15,12 +15,9 @@ end
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-require("lspconfig").lua_ls.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-}
+-- local configs = require 'lspconfig.configs'
 
-require("lspconfig").pylsp.setup {
+require("lspconfig").lua_ls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
 }
@@ -31,6 +28,16 @@ require("lspconfig").html.setup {
 }
 
 require("lspconfig").cssls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+
+require("lspconfig").pyright.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+
+require("lspconfig").clangd.setup {
   on_attach = on_attach,
   capabilities = capabilities,
 }
