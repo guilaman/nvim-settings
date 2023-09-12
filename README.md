@@ -139,12 +139,17 @@ More actions that I keep updating as I learn:
 * cycle between tabs with `gt`, `gT`
 * `<number>gt` to jump to a specific tab
 
+
 ## splits
 See [this LearnByExample post](https://learnbyexample.github.io/tips/vim-tip-14/)
 * `:vs` can be used instead of `:vsplit` to make a vertical split
 * `Ctrl`+`w` followed by `hjkl` or arrow keys to switch in the corresponding direction (useful to remap to just ctrl+h and so on)
 * `Ctrl`+`w` followed by `t` or `b`: jump to top-most or bottom-most split
 * (see more in the linked post)
+from [this VimTricks post](https://vimtricks.com/p/resize-splits/)
+* `Ctrl`+`w` followed by `>` or `<` to increase or decrease width of current split by one line (or prepend with a number)
+* `Ctrl`+`w` followed by `+` or `-` to increase or decrease height of current split by one line (or prepend with a number)
+* `Ctrl`+`w` followed by `=` to equalize splits again.
 
 
 ## screen navigation
@@ -246,6 +251,16 @@ the recorded actions are repeated once.
 
 
 ***
+
+* ## nvim-surround plugin
+* [see usage examples in the plugin's README](https://github.com/kylechui/nvim-surround#rocket-usage):
+* `ys` "you surround"
+* `cs` "change surrounding"
+* `ds` "delete surrounding"
+* `iw` "words"
+* `t` "tags"
+* ...more, see the plugin's GitHub page
+
 ***
 Now the part I still don't understand and have to research about all the plugins configuration:
 
